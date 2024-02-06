@@ -6,6 +6,12 @@ if [ -f "$HOME/.bashrc" ]; then
   rm "$HOME/.bashrc";
 fi
 
+# cleanup i3
+if [ -d "$XDG_CONFIG_HOME/i3" ]; then
+  echo "$XDG_CONFIG_HOME/i3 exists. Cleaning...";
+  rm -r "$XDG_CONFIG_HOME/i3";
+fi
+
 # cleanup wezterm config
 if [ -d "$XDG_CONFIG_HOME/wezterm" ]; then
   echo "$XDG_CONFIG_HOME/wezterm exists. Cleaning...";
