@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Set keyboard repeat rate. Repeat delay at 175ms at 40 repeats
 # see man xset
 xset r rate 175 40
