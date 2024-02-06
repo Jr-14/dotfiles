@@ -1,3 +1,3 @@
 #! /bin/bash
 
-stow bash;
+stow bash nvim;
