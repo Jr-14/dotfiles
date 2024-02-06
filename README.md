@@ -17,7 +17,18 @@ brew install stow
 ```
 
 # Usage
+Change permissions for scripts
 ```
-chmod +x install.sh
+chmod +x ./cleanup.sh
+chmod +x ./install.sh
+```
+
+Cleanup first incase symlinks already exist
+```
+./cleanup.sh
+```
+
+Then recreate the symlink
+```
 ./install.sh
 ```
