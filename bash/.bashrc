@@ -150,5 +150,9 @@ alias reboot="systemctl reboot"
 alias poweroff="systemctl poweroff"
 alias docker-desktop="systemctl --user start docker-desktop"
 
+# https://dev.to/creativenull/installing-neovim-nightly-alongside-stable-10d0
+alias vim="nv.sh"
+alias nvim="nv.sh"
+
 export PATH="$PATH:/usr/bin/Postman"
 export PATH="$PATH:/home/jr/.local/bin"
