@@ -1,3 +1,3 @@
 #! /bin/bash
 
-stow bash nvim;
+stow bash nvim wezterm;

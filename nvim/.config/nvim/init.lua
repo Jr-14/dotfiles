@@ -73,11 +73,17 @@ require('lazy').setup({
   'tpope/vim-sleuth',
 
   -- Nvim Tree
+  -- {
+  --   'nvim-tree/nvim-tree.lua',
+  --   dependencies = {
+  --     'nvim-tree/nvim-web-devicons', -- optional, for file icons
+   --  }
+  -- },
+
+  -- Nvim-telescope/telescope-file-browser
   {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-	  }
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" }
   },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
@@ -125,21 +131,21 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'onedark'
   --   end,
   -- },
-  -- { -- Catpuccin theme
-  --   "catppuccin/nvim",
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'catppuccin-mocha'
-  --   end,
-  -- },
+  { -- Catpuccin theme
+    "catppuccin/nvim",
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'catppuccin-mocha'
+    end,
+  },
   -- { -- Gruvbox theme
   --   "ellisonleao/gruvbox.nvim",
   --   priority = 1000
   -- },
-  { -- Gruvbox Material theme
-    "sainnhe/gruvbox-material",
-    priority = 1000
-  },
+  -- { -- Gruvbox Material theme
+  --   "sainnhe/gruvbox-material",
+  --   priority = 1000
+  -- },
   -- {
   --   'folke/tokyonight.nvim',
   --   priority = 1000,
@@ -171,7 +177,8 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'gruvbox-material',
+        -- theme = 'gruvbox-material',
+        theme = 'OceanicNext',
         component_separators = '|',
         section_separators = '',
       },
@@ -338,17 +345,20 @@ vim.o.termguicolors = true
 -- Gruvbox theme
 -- vim.o.background = "dark" -- or "light" for light mode
 -- vim.cmd([[colorscheme gruvbox]])
---
+
 -- Gruvbox material theme
-vim.o.background = "dark" -- or "light" for light mode
+-- vim.o.background = "dark" -- or "light" for light mode
+
 -- Set contrast
 -- This configuration option should be placed before 'colorscheme gruvbox-material'
 -- Available values : 'hard', 'medium(default)', 'soft'
-vim.g.gruvbox_material_background = 'hard'
--- For better performance
-vim.g.gruvbox_material_better_performance = 1
+-- vim.g.gruvbox_material_background = 'hard'
 
-vim.cmd([[colorscheme gruvbox-material]])
+-- For better performance
+-- vim.g.gruvbox_material_better_performance = 1
+
+-- Set this for Gruvbox material theme
+-- vim.cmd([[colorscheme gruvbox-material]])
 
 -- [[ Basic Keymaps ]]
 
@@ -416,7 +426,6 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 -- [[ Configure nvim-tree ]]
-
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -633,17 +642,39 @@ cmp.setup {
 }
 -- Nvim Tree
 -- OR setup with some options
-require("nvim-tree").setup({
-  hijack_netrw = true,
-  open_on_tab = false,
-  sort_by = "case_sensitive",
-  renderer = {
-    group_empty = true,
+-- require("nvim-tree").setup({
+--   hijack_netrw = true,
+--   open_on_tab = false,
+--   sort_by = "case_sensitive",
+--   renderer = {
+--     group_empty = true,
+--   },
+--   filters = {
+--     dotfiles = false,
+--   }
+-- })
+
+-- Nvim-telescope/telescope-file-browser
+require("telescope").setup {
+  extensions = {
+    file_browser = {
+      theme = "ivy",
+      -- disables netrw and use telescope-file-browser in its place
+      hijack_netrw = true,
+    },
   },
-  filters = {
-    dotfiles = false,
-  }
-})
+}
+-- To get telescope-file-browser loaded and working with telescope,
+-- you need to call load_extension, somewhere after setup function:
+require("telescope").load_extension "file_browser"
+
+-- open file_browser with the path of the current buffer
+vim.api.nvim_set_keymap(
+  "n",
+  "<space>fb",
+  ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  { noremap = true }
+)
 
 -- Set the Nvim Tree Background Opacity to the terminals
 vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
