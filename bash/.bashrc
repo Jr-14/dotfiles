@@ -142,17 +142,20 @@ function down-dev-offertures {
     popd > /dev/null;
 }
 
+function run-nvim-nightly() {
+    VIMRUNTIME=$HOME/dev/neovim/runtime $HOME/dev/neovim/build/bin/nvim $1;
+}
+
 alias screenshot="spectacle"
 alias offertures="cd ~/Offertures"
 alias islp-activate="source ~/python-virtualenv/islp/bin/activate"
-alias vim="nvim"
 alias reboot="systemctl reboot"
 alias poweroff="systemctl poweroff"
 alias docker-desktop="systemctl --user start docker-desktop"
 
 # https://dev.to/creativenull/installing-neovim-nightly-alongside-stable-10d0
-alias vim="nv.sh"
-alias nvim="nv.sh"
+alias vim=run-nvim-nightly
+alias nvim=run-nvim-nightly
 
 export PATH="$PATH:/usr/bin/Postman"
 export PATH="$PATH:/home/jr/.local/bin"
