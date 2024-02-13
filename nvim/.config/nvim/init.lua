@@ -131,11 +131,20 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'onedark'
   --   end,
   -- },
-  { -- Catpuccin theme
-    "catppuccin/nvim",
+  -- { -- Catpuccin theme
+  --   "catppuccin/nvim",
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'catppuccin-mocha'
+  --   end,
+  -- },
+  {
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'catppuccin-mocha'
+      vim.cmd.colorscheme("moonfly")
     end,
   },
   -- { -- Gruvbox theme
