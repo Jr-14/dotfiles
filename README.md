@@ -16,7 +16,7 @@ sudo apt-get install stow
 brew install stow
 ```
 
-# Usage
+# Usage/Installation
 Change permissions for scripts
 ```
 chmod +x ./cleanup.sh
