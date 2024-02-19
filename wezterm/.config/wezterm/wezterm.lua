@@ -15,5 +15,11 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = 'Moonfly (Gogh)'
 
+-- Remove title bar
+config.window_decorations = "NONE"
+
+-- Hide tab bar for 1 tab
+config.hide_tab_bar_if_only_one_tab = true
+
 -- and finally, return the configuration to wezterm
 return config
