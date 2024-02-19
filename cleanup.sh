@@ -6,6 +6,12 @@ if [ -f "$HOME/.bashrc" ]; then
   rm "$HOME/.bashrc";
 fi
 
+# cleanup tmux
+if [ -f "$HOME/.tmux.conf" ]; then
+  echo "$HOME/.tmux.conf exists. Cleaning...";
+  rm "$HOME/.tmux.conf";
+fi
+
 # cleanup i3
 if [ -d "$XDG_CONFIG_HOME/i3" ]; then
   echo "$XDG_CONFIG_HOME/i3 exists. Cleaning...";
