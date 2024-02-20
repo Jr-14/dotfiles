@@ -19,6 +19,11 @@ Ensure to do a clean compile. You can check the docs for more information.
 make distclean && make CMAKE_BUILD_TYPE=Release
 ```
 
+If the above doesn't work, Another way is to use the following command
+```
+sudo make install clean && sudo make CMAKE_BUILD_TYPE=Release && sudo make install
+```
+
 The `nvim` binary should now be in `./build/bin`
 
 Config for dotfiles are found in `$HOME/.config/nvim` where an `nv.sh` lives. This script runs the neovim nightly
