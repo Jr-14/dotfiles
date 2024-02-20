@@ -146,6 +146,14 @@ function run-nvim-nightly() {
     VIMRUNTIME=$HOME/dev/neovim/runtime $HOME/dev/neovim/build/bin/nvim $1;
 }
 
+function stopwatch() {
+    start=$(date +%s)
+    while true; do
+	time="$(($(date +%s) - $start))"
+	printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
+    done
+}
+
 alias screenshot="spectacle"
 alias offertures="cd ~/Offertures"
 alias islp-activate="source ~/python-virtualenv/islp/bin/activate"
