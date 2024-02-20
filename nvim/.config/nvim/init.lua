@@ -253,6 +253,10 @@ require('lazy').setup({
   'windwp/nvim-autopairs',
 
   {
+    'windwp/nvim-ts-autotag',
+  },
+
+  {
     "kevinhwang91/nvim-ufo",
 		dependencies = "kevinhwang91/promise-async",
 		event = "BufReadPost", -- needed for folds to load properly
@@ -459,6 +463,10 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
+  -- nvim-ts-autotag treesitter setup
+  autotag = {
+    enable = true,
+  },
   -- Add languages to be installed here that you want installed for treesitter
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'javascript', 'vim',
     'json', 'vimdoc', 'regex'
