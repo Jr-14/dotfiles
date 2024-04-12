@@ -308,7 +308,7 @@ require('lazy').setup({
 			end,
 			-- open opening the buffer, close these fold kinds
 			-- use `:UfoInspect` to get available fold kinds from the LSP
-			close_fold_kinds_for_ft = { "imports", "comment" },
+      close_fold_kinds_for_ft = { default = {'imports', 'comment'}, },
 			open_fold_hl_timeout = 800,
 			fold_virt_text_handler = foldTextFormatter,
 		},
@@ -453,6 +453,9 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').git_files, { desc
 vim.keymap.set('n', '<leader>sc', require('telescope.builtin').git_status, { desc = '[S]earch Git Files to [C]ommit' })
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_document_symbols, { desc = '[S]earch for Document [S]ymbols ' })
 vim.keymap.set('n', '<leader>sW', require('telescope.builtin').lsp_workspace_symbols, { desc = '[S]earch for [W]orkspace Symbols ' })
+
+-- Dismiss Noice Message
+vim.keymap.set('n', '<leader>nd', "<cmd>NoiceDismiss<CR>", { desc = 'Dismiss Noice Message' })
 
 -- Jumping half pages will centre the screen
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
@@ -703,7 +706,9 @@ require("telescope").setup {
 }
 -- To get telescope-file-browser loaded and working with telescope,
 -- you need to call load_extension, somewhere after setup function:
-require("telescope").load_extension "file_browser"
+require("telescope").load_extension("file_browser")
+
+require("telescope").load_extension("noice")
 
 vim.api.nvim_set_keymap(
   "n",
