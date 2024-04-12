@@ -16,7 +16,7 @@ end
 config.color_scheme = 'Moonfly (Gogh)'
 
 -- Remove title bar
-config.window_decorations = "NONE"
+config.window_decorations = "RESIZE"
 
 -- Hide tab bar for 1 tab
 config.hide_tab_bar_if_only_one_tab = true

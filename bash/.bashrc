@@ -167,3 +167,4 @@ alias nvim=run-nvim-nightly
 
 export PATH="$PATH:/usr/bin/Postman"
 export PATH="$PATH:/home/jr/.local/bin"
+export PATH="$PATH:/home/jr/go/bin"
