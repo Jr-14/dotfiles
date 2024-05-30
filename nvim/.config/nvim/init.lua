@@ -180,6 +180,14 @@ require('lazy').setup({
   --   lazy = false,
   --   priority = 1000
   -- },
+    {
+      'ayu-theme/ayu-vim',
+      priority = 1000,
+      config = function()
+        vim.g.ayucolor = 'dark'
+        vim.cmd.colorscheme 'ayu'
+      end,
+    },
 
   -- https://github.com/folke/noice.nvim
   -- Noice-nvim

@@ -10,10 +10,16 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+-- Configure font
+config.font = wezterm.font_with_fallback {
+  'FiraCode Nerd Font',
+  'JetBrains Mono',
+}
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Moonfly (Gogh)'
+-- config.color_scheme = 'Moonfly (Gogh)'
+config.color_scheme = 'ayu'
 
 -- Remove title bar
 config.window_decorations = "RESIZE"
