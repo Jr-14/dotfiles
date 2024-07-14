@@ -138,15 +138,15 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'catppuccin-mocha'
   --   end,
   -- },
-  {
-    "bluz71/vim-moonfly-colors",
-    name = "moonfly",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("moonfly")
-    end,
-  },
+  -- {
+  --   "bluz71/vim-moonfly-colors",
+  --   name = "moonfly",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme("moonfly")
+  --   end,
+  -- },
   -- { -- Gruvbox theme
   --   "ellisonleao/gruvbox.nvim",
   --   priority = 1000
