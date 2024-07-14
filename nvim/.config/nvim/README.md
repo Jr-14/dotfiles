@@ -21,7 +21,7 @@ make distclean && make CMAKE_BUILD_TYPE=Release
 
 If the above doesn't work, Another way is to use the following command
 ```
-sudo make install clean && sudo make CMAKE_BUILD_TYPE=Release && sudo make install
+sudo make install clean && sudo make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
 ```
 
 The `nvim` binary should now be in `./build/bin`
