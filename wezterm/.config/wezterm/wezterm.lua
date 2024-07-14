@@ -15,6 +15,8 @@ config.font = wezterm.font_with_fallback {
   'FiraCode Nerd Font',
   'JetBrains Mono',
 }
+
+config.font_size = 11
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
