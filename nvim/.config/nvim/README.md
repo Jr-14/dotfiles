@@ -16,7 +16,7 @@ Pull the github repo into your folder
 
 Ensure to do a clean compile. You can check the docs for more information.
 ```
-make distclean && make CMAKE_BUILD_TYPE=Release
+make distclean && make CMAKE_BUILD_TYPE=RelWithDebInfo
 ```
 
 If the above doesn't work, Another way is to use the following command
@@ -26,7 +26,19 @@ sudo make install clean && sudo make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo mak
 
 The `nvim` binary should now be in `./build/bin`
 
-Config for dotfiles are found in `$HOME/.config/nvim` where an `nv.sh` lives. This script runs the neovim nightly
-runtime with a few environment variables. You can place `nv.sh` in `$HOME/.local/bin` as long as it is in the path.
+You can create a symlink in for the nvim binary living in `./build/bin/nvim` into `~/.local/bin` or in `/usr/bin`
 
-You can set an alias for `vim` and `nvim` to use `nv.sh` if and only if `$HOME/.local/bin` is on path.
+For System installation requires root.
+```bash
+sudo ln -s $HOME/neovim/build/bin/nvim /usr/bin/nvim
+```
+
+For User installation:
+```bash
+mkdir -p ~/.local/bin
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+Config for dotfiles are found in `$HOME/.config/nvim`.
+

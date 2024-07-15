@@ -47,7 +47,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Suspend and lock
-bindsym $super+Shift+x exec --no-startup-id systemctl suspend & i3lock -n -c 333333 & $refresh_i3status
+bindsym $super+Shift+x exec --no-startup-id systemctl suspend & i3lock -n -i $HOME/Pictures/Background/minimalist-mountain-black-and-white.png & $refresh_i3status
 
 # Set key binds for mod and super key
 set $alt $super
