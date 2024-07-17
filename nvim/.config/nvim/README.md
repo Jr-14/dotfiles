@@ -36,6 +36,7 @@ sudo ln -s $HOME/neovim/build/bin/nvim /usr/bin/nvim
 For User installation:
 ```bash
 mkdir -p ~/.local/bin
+sudo ln -s $HOME/neovim/build/bin/nvim $HOME/.local/bin
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
