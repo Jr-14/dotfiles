@@ -42,7 +42,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Background image
-exec --no-startup-id feh --bg-scale $HOME/Pictures/Background/bioshock-apartment-view-7680x4320-8k-v0-ihrd8sljpafa1.jpg
+exec --no-startup-id feh --bg-scale $HOME/Pictures/Background/nebula.jpg
 
 # https://www.reddit.com/r/i3wm/comments/znailj/is_there_a_way_to_remove_the_top_title_bar/
 # Remove title bar from i3
