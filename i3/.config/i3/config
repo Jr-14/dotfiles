@@ -41,10 +41,20 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Background image
+exec --no-startup-id feh --bg-scale $HOME/Pictures/Background/bioshock-apartment-view-7680x4320-8k-v0-ihrd8sljpafa1.jpg
 
 # https://www.reddit.com/r/i3wm/comments/znailj/is_there_a_way_to_remove_the_top_title_bar/
 # Remove title bar from i3
-for_window [class="^.*"] border pixel 0
+# Set border pixel 2 to so that we can see border around focused client
+for_window [class="^.*"] border pixel 2
+
+# Set gaps between windows
+gaps inner 4px
+
+# Change client focused color
+# Fusia Amethyst - 9966cc
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #9966cc
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

@@ -1,6 +1,9 @@
 # .dotfiles
 Dotfiles for stuff
 
+# To Do
+- [ ] Add polybar docs
+
 # Requirements
 stow
 
