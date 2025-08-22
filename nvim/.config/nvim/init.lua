@@ -464,25 +464,25 @@ require('lazy').setup({
   --   "ellisonleao/gruvbox.nvim",
   --   priority = 1000
   -- },
-  { -- Gruvbox Material theme
-    "sainnhe/gruvbox-material",
-    priority = 1000,
-    config = function()
-      -- Gruvbox material theme
-      vim.o.background = "dark" -- or "light" for light mode
-
-      -- Set contrast
-      -- This configuration option should be placed before 'colorscheme gruvbox-material'
-      -- Available values : 'hard', 'medium(default)', 'soft'
-      vim.g.gruvbox_material_background = 'hard'
-
-      -- For better performance
-      vim.g.gruvbox_material_better_performance = 1
-
-      -- Set this for Gruvbox material theme
-      vim.cmd([[colorscheme gruvbox-material]])
-    end,
-  },
+  -- { -- Gruvbox Material theme
+  --   "sainnhe/gruvbox-material",
+  --   priority = 1000,
+  --   config = function()
+  --     -- Gruvbox material theme
+  --     vim.o.background = "dark" -- or "light" for light mode
+  --
+  --     -- Set contrast
+  --     -- This configuration option should be placed before 'colorscheme gruvbox-material'
+  --     -- Available values : 'hard', 'medium(default)', 'soft'
+  --     vim.g.gruvbox_material_background = 'hard'
+  --
+  --     -- For better performance
+  --     vim.g.gruvbox_material_better_performance = 1
+  --
+  --     -- Set this for Gruvbox material theme
+  --     vim.cmd([[colorscheme gruvbox-material]])
+  --   end,
+  -- },
   -- {
   --   'folke/tokyonight.nvim',
   --   priority = 1000,
@@ -490,14 +490,14 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'tokyonight-moon'
   --   end,
   -- },
-  -- { 'rose-pine/neovim',
-  --   name = 'rose-pine',
-  --   priority = 1000,
-  --   lazy = false,
-  --   config = function()
-  --     vim.cmd.colorscheme('rose-pine')
-  --   end,
-  -- },
+  { 'rose-pine/neovim',
+    name = 'rose-pine',
+    priority = 1000,
+    lazy = false,
+    config = function()
+      vim.cmd.colorscheme('rose-pine')
+    end,
+  },
   -- { 'rebelot/kanagawa.nvim',
   --   priority = 1000,
   --   config = function()
@@ -544,8 +544,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'gruvbox-material',
-        -- theme = 'OceanicNext',
+        theme = 'rose-pine',
         component_separators = '|',
         section_separators = '',
       },
@@ -648,10 +647,28 @@ require('lazy').setup({
 			end,
 			-- open opening the buffer, close these fold kinds
 			-- use `:UfoInspect` to get available fold kinds from the LSP
-      close_fold_kinds_for_ft = { default = {'imports', 'comment'}, },
+      -- close_fold_kinds_for_ft = { default = {'imports', 'comment'}, },
 			open_fold_hl_timeout = 800,
 			fold_virt_text_handler = foldTextFormatter,
 		},
+  },
+  {
+    'chomosuke/typst-preview.nvim',
+    lazy = false, -- or ft = 'typst'
+    version = '1.*',
+    config = function()
+      require('typst-preview').setup({
+        -- Use tinymist installed from Mason
+        dependencies_bin = { ['tinymist'] = 'tinymist' }
+      })
+
+      vim.keymap.set('n', '<leader>tu', '<CMD>TypstPreviewUpdate<CR>', { desc = "[T]ypst Preview [U]pdate" })
+      vim.keymap.set('n', '<leader>tp', '<CMD>TypstPreview<CR>', { desc = "[T]ypst [P]review" })
+      vim.keymap.set('n', '<leader>ts', '<CMD>TypstPreviewStop<CR>', { desc = "[T]ypst Preview [S]top" })
+      vim.keymap.set('n', '<leader>tt', '<CMD>TypstPreviewToggle<CR>', { desc = "[T]ypst Preview [T]oggle" })
+      vim.keymap.set('n', '<leader>tfc', '<CMD>TypstPreviewFollowCursor<CR>', { desc = "[T]ypst Preview [F]ollow [C]ursor" })
+      vim.keymap.set('n', '<leader>tfn', '<CMD>TypstPreviewNoFollowCursor<CR>', { desc = "[T]ypst Preview [F]ollow [N]o [C]ursor" })
+    end,
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
