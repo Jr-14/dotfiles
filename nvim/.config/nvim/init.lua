@@ -490,20 +490,31 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'tokyonight-moon'
   --   end,
   -- },
-  { 'rose-pine/neovim',
-    name = 'rose-pine',
-    priority = 1000,
-    lazy = false,
-    config = function()
-      vim.cmd.colorscheme('rose-pine')
-    end,
-  },
+  -- {
+  --   'rose-pine/neovim',
+  --   name = 'rose-pine',
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     vim.cmd.colorscheme('rose-pine')
+  --   end,
+  -- },
   -- { 'rebelot/kanagawa.nvim',
   --   priority = 1000,
   --   config = function()
   --     vim.cmd.colorscheme 'kanagawa-dragon'
   --   end,
   -- },
+  {
+    'aktersnurra/no-clown-fiesta.nvim',
+    name = 'no-clown-fiesta',
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require('no-clown-fiesta').setup({})
+      vim.cmd.colorscheme('no-clown-fiesta')
+    end,
+  },
 
   -- https://github.com/folke/noice.nvim
   -- Noice-nvim
@@ -544,7 +555,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'rose-pine',
+        theme = 'no-clown-fiesta',
         component_separators = '|',
         section_separators = '',
       },
