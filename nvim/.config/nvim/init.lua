@@ -517,39 +517,6 @@ require('lazy').setup({
     end,
   },
 
-  -- https://github.com/folke/noice.nvim
-  -- Noice-nvim
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      -- add any options here
-      lsp = {
-      -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-        },
-      },
-      -- you can enable a preset for easier configuration
-      presets = {
-        bottom_search = false, -- use a classic bottom cmdline for search
-        command_palette = false, -- position the cmdline and popupmenu together
-        long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false, -- add a border to hover docs and signature help
-      },
-    },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    }
-  },
   { -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
@@ -854,9 +821,6 @@ vim.keymap.set('n', '<leader>sW', require('telescope.builtin').lsp_workspace_sym
 
 vim.keymap.set('n', '<leader>fm', require('telescope.builtin').marks, { desc = '[F]ind [M]arks' })
 
--- Dismiss Noice Message
-vim.keymap.set('n', '<leader>nd', "<cmd>NoiceDismiss<CR>", { desc = 'Dismiss Noice Message' })
-
 -- Jumping half pages will centre the screen
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
@@ -1108,8 +1072,6 @@ require("telescope").setup {
 -- you need to call load_extension, somewhere after setup function:
 require("telescope").load_extension("file_browser")
 
--- require("telescope").load_extension("noice")
-
 vim.api.nvim_set_keymap(
   "n",
   "<space>fb",
@@ -1124,26 +1086,6 @@ vim.api.nvim_set_keymap(
 --   ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
 --   { noremap = true }
 -- )
-
--- noice-nvim
--- require("noice").setup({
---   lsp = {
---     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
---     override = {
---       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
---       ["vim.lsp.util.stylize_markdown"] = true,
---       ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
---     },
---   },
---   -- you can enable a preset for easier configuration
---   presets = {
---     bottom_search = true, -- use a classic bottom cmdline for search
---     command_palette = true, -- position the cmdline and popupmenu together
---     long_message_to_split = true, -- long messages will be sent to a split
---     inc_rename = false, -- enables an input dialog for inc-rename.nvim
---     lsp_doc_border = false, -- add a border to hover docs and signature help
---   }
--- })
 
 -- Set the Nvim Tree Background Opacity to the terminals
 vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
