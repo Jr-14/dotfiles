@@ -81,10 +81,10 @@ require('lazy').setup({
   -- },
 
   -- Nvim-telescope/telescope-file-browser
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" }
-  },
+  -- {
+  --   "nvim-telescope/telescope-file-browser.nvim",
+  --   dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" }
+  -- },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -449,7 +449,7 @@ require('lazy').setup({
   --   "catppuccin/nvim",
   --   priority = 1000,
   --   config = function()
-  --     vim.cmd.colorscheme 'catppuccin-mocha'
+  --     vim.cmd.colorscheme 'catppuccin-latte'
   --   end,
   -- },
   -- {
@@ -649,6 +649,19 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>tfn', '<CMD>TypstPreviewNoFollowCursor<CR>', { desc = "[T]ypst Preview [F]ollow [N]o [C]ursor" })
     end,
   },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons", -- optional, but recommended
+    },
+    lazy = false, -- neo-tree will lazily load itself,
+    config = function ()
+      vim.keymap.set('n', '<leader>fb', '<CMD>Neotree toggle<CR>', { desc = "Neotree [F]ile [B]rowser" })
+    end
+  }
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -784,15 +797,15 @@ require('telescope').setup {
       end,
     }
   },
-  extensions = {
-    file_browser = {
-      -- theme = "ivy",
-      -- disables netrw and use telescope-file-browser in its place
-      hidden = { file_browser = true, folder_browser = true },
-      prompt_path = true,
-      hijack_netrw = true,
-    },
-  },
+  -- extensions = {
+  --   file_browser = {
+  --     -- theme = "ivy",
+  --     -- disables netrw and use telescope-file-browser in its place
+  --     hidden = { file_browser = true, folder_browser = true },
+  --     prompt_path = true,
+  --     hijack_netrw = true,
+  --   },
+  -- },
 }
 
 -- Enable telescope fzf native, if installed
@@ -1060,24 +1073,24 @@ cmp.setup {
 
 -- Nvim-telescope/telescope-file-browser
 require("telescope").setup {
-  extensions = {
-    file_browser = {
-      -- theme = "ivy",
-      -- disables netrw and use telescope-file-browser in its place
-      hijack_netrw = true,
-    },
-  },
+  -- extensions = {
+  --   file_browser = {
+  --     -- theme = "ivy",
+  --     -- disables netrw and use telescope-file-browser in its place
+  --     hijack_netrw = true,
+  --   },
+  -- },
 }
 -- To get telescope-file-browser loaded and working with telescope,
 -- you need to call load_extension, somewhere after setup function:
-require("telescope").load_extension("file_browser")
+-- require("telescope").load_extension("file_browser")
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<space>fb",
-  ":Telescope file_browser<CR>",
-  { noremap = true }
-)
+-- vim.api.nvim_set_keymap(
+--   "n",
+--   "<space>fb",
+--   ":Telescope file_browser<CR>",
+--   { noremap = true }
+-- )
 
 -- open file_browser with the path of the current buffer
 -- vim.api.nvim_set_keymap(
