@@ -512,7 +512,9 @@ require('lazy').setup({
   --   priority = 1000,
   --   lazy = false,
   --   config = function()
-  --     require('no-clown-fiesta').setup({})
+  --     require('no-clown-fiesta').setup({
+  --       -- transparent = true,
+  --     })
   --     vim.cmd.colorscheme('no-clown-fiesta')
   --   end,
   -- },
@@ -568,7 +570,7 @@ require('lazy').setup({
     end,
   },
 
-  'windwp/nvim-autopairs',
+  -- 'windwp/nvim-autopairs',
 
   {
     'windwp/nvim-ts-autotag',
@@ -1103,7 +1105,7 @@ require("telescope").setup {
 -- Set the Nvim Tree Background Opacity to the terminals
 vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
 
-require("nvim-autopairs").setup()
+-- require("nvim-autopairs").setup()
 
 -- https://github.com/nvim-tree/nvim-tree.lua/discussions/1517
 -- require('nvim-tree').toggle(false, true)
