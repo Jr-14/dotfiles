@@ -3,7 +3,7 @@
 # This template file has been automatically created at the following
 # path since Ghostty couldn't find any existing config files on your system:
 #
-#   /Users/john.requizo/Library/Application Support/com.mitchellh.ghostty/config
+#   /home/jr/.config/ghostty/config
 #
 # The template does not set any default options, since Ghostty ships
 # with sensible defaults for all options. Users should only need to set
@@ -20,16 +20,13 @@
 # Control + Shift + comma on other platforms). Not all config options can be
 # reloaded while running; some only apply to new windows and others may require
 # a full restart to take effect.
-theme = Niji
 
 # Config syntax crash course
 # ==========================
 # # The config file consists of simple key-value pairs,
 # # separated by equals signs.
-font-family = Iosevka Nerd Font
-window-padding-x = 2
-
-window-decoration = none
+# font-family = Iosevka
+# window-padding-x = 2
 #
 # # Spacing around the equals sign does not matter.
 # # All of these are identical:
@@ -50,4 +47,20 @@ window-decoration = none
 # # which is explained in the docs for that config option.
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
+
+# theme = carbonfox
+theme = catppuccin-latte
+
+font-family = IosevkaNerdFont
+# font-family = Source Code Pro
+font-size = 12
+font-feature = -liga, -calt, -dlig
+
+# window-decoration = none
+window-padding-x = 5
+
+background-opacity = 1.0
+
+custom-shader-animation = always
+custom-shader = shaders/cursor_tail.glsl
 
