@@ -463,13 +463,13 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'onedark'
   --   end,
   -- },
-  { -- Catpuccin theme
-    "catppuccin/nvim",
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'catppuccin-latte'
-    end,
-  },
+  -- { -- Catpuccin theme
+  --   "catppuccin/nvim",
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'catppuccin-latte'
+  --   end,
+  -- },
   -- {
   --   "bluz71/vim-moonfly-colors",
   --   name = "moonfly",
@@ -524,26 +524,26 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'kanagawa-dragon'
   --   end,
   -- },
-  -- {
-  --   'aktersnurra/no-clown-fiesta.nvim',
-  --   name = 'no-clown-fiesta',
-  --   priority = 1000,
-  --   lazy = false,
-  --   config = function()
-  --     require('no-clown-fiesta').setup({
-  --       -- transparent = true,
-  --     })
-  --     vim.cmd.colorscheme('no-clown-fiesta')
-  --   end,
-  -- },
+  {
+    'aktersnurra/no-clown-fiesta.nvim',
+    name = 'no-clown-fiesta',
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require('no-clown-fiesta').setup({
+        -- transparent = true,
+      })
+      vim.cmd.colorscheme('no-clown-fiesta')
+    end,
+  },
   { -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
       options = {
         icons_enabled = true,
-        -- theme = 'no-clown-fiesta',
-        theme = 'catppuccin-latte',
+        theme = 'no-clown-fiesta',
+        -- theme = 'catppuccin-latte',
         component_separators = '|',
         section_separators = '',
       },
