@@ -49,7 +49,7 @@
 # resize-overlay-duration = 4s 200ms
 
 # theme = carbonfox
-theme = catppuccin-latte
+theme = Catppuccin Latte
 
 font-family = IosevkaNerdFont
 # font-family = Source Code Pro
