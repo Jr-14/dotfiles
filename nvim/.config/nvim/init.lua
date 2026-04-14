@@ -322,7 +322,15 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
-        --
+
+        -- super help zls confim with nvim-lsp
+        -- https://gist.github.com/vrischmann/7ede9bff28fe3ad4e4d8fc9fc96e59c7
+        zls = {
+          cmd = { 'zls' },
+          filetypes = { 'zig', 'zir' },
+          root_markers = { 'zls.json', 'build.zig', '.git' },
+          workspace_required = false,
+        },
 
         lua_ls = {
           -- cmd = { ... },
@@ -463,13 +471,13 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'onedark'
   --   end,
   -- },
-  { -- Catpuccin theme
-    "catppuccin/nvim",
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'catppuccin-latte'
-    end,
-  },
+  -- { -- Catpuccin theme
+  --   "catppuccin/nvim",
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'catppuccin-mocha'
+  --   end,
+  -- },
   -- {
   --   "bluz71/vim-moonfly-colors",
   --   name = "moonfly",
@@ -524,26 +532,26 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'kanagawa-dragon'
   --   end,
   -- },
-  -- {
-  --   'aktersnurra/no-clown-fiesta.nvim',
-  --   name = 'no-clown-fiesta',
-  --   priority = 1000,
-  --   lazy = false,
-  --   config = function()
-  --     require('no-clown-fiesta').setup({
-  --       -- transparent = true,
-  --     })
-  --     vim.cmd.colorscheme('no-clown-fiesta')
-  --   end,
-  -- },
+  {
+    'aktersnurra/no-clown-fiesta.nvim',
+    name = 'no-clown-fiesta',
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require('no-clown-fiesta').setup({
+        -- transparent = true,
+      })
+      vim.cmd.colorscheme('no-clown-fiesta')
+    end,
+  },
   { -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
       options = {
         icons_enabled = true,
-        -- theme = 'no-clown-fiesta',
-        theme = 'catppuccin-latte',
+        theme = 'no-clown-fiesta',
+        -- theme = 'catppuccin-mocha',
         component_separators = '|',
         section_separators = '',
       },
