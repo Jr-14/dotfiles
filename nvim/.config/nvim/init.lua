@@ -583,8 +583,10 @@ require('lazy').setup({
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects'
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      branch = 'main',
     },
     config = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
@@ -865,7 +867,7 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter').setup {
   -- nvim-ts-autotag treesitter setup
   autotag = {
     enable = true,
@@ -877,8 +879,18 @@ require('nvim-treesitter.configs').setup {
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
-  highlight = { enable = true },
-  indent = { enable = true, disable = { 'python' } },
+  -- highlight = { enable = true },
+  -- indent = { enable = true, disable = { 'python' } },
+  init = function()
+    vim.api.nvim_create_autocmd('FileType', {
+      callback = function()
+        -- Enable treesitter highlighting and disable regex syntax
+        pcall(vim.treesitter.start)
+        -- Enable treesitter-based indentation
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
+  end,
   incremental_selection = {
     enable = true,
     keymaps = {
