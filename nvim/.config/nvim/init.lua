@@ -325,12 +325,6 @@ require('lazy').setup({
 
         -- super help zls confim with nvim-lsp
         -- https://gist.github.com/vrischmann/7ede9bff28fe3ad4e4d8fc9fc96e59c7
-        zls = {
-          cmd = { 'zls' },
-          filetypes = { 'zig', 'zir' },
-          root_markers = { 'zls.json', 'build.zig', '.git' },
-          workspace_required = false,
-        },
 
         lua_ls = {
           -- cmd = { ... },
@@ -365,7 +359,8 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
       })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      -- Automatically install - not good no no
+      -- require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
