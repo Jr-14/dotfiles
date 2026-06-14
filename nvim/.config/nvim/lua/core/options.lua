@@ -89,8 +89,6 @@ vim.opt.isfname:append("@-@")
 -- Highlight the current line
 vim.opt.cursorline = true
 
--- Apparently this speeds up vim for iterm
--- https://www.reddit.com/r/vim/comments/7fqpny/slow_vim_scrolling_and_cursor_moving_in_iterm_and/
-vim.opt.regexpengine = 1
+vim.opt.regexpengine = 0
 
 vim.opt.colorcolumn = "120"
