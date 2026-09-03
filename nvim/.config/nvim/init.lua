@@ -157,8 +157,14 @@ require('lazy').setup({
           map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
           map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-          -- See `:help K` for why this keymap
-          map('K', vim.lsp.buf.hover, 'Hover Documentation')
+          vim.keymap.set("n", "K", function()
+            vim.lsp.buf.hover({
+              border = "rounded",
+            })
+          end, {
+            buffer = event.buf,
+            desc = "Hover Documentation",
+          })
           map('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
           -- Lesser used LSP functionality
