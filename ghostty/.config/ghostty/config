@@ -48,8 +48,17 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
+# Dark themes
 # theme = carbonfox
-theme = Catppuccin Latte
+# theme = catppuccin-mocha
+# theme = zenbones_dark
+
+# Light themes
+# theme = catppuccin-latte
+theme = Adwaita
+
+# https://ghostty.org/docs/features/shell-integration
+shell-integration = none
 
 font-family = IosevkaNerdFont
 # font-family = Source Code Pro
@@ -64,3 +73,6 @@ background-opacity = 1.0
 custom-shader-animation = always
 custom-shader = shaders/cursor_tail.glsl
 
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor
