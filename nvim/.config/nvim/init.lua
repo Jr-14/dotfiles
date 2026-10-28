@@ -530,22 +530,13 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'kanagawa-dragon'
   --   end,
   -- },
-  -- {
-  --   dir = vim.fn.expand('~/dotfiles/slick.nvim'),
-  --   name = 'slick.nvim',
-  --   priority = 1000,
-  --   lazy = false,
-  --   config = function()
-  --     require('slick').load('Zesty Yellow')
-  --   end,
-  -- },
   {
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
+    dir = vim.fn.expand('~/dotfiles/slick.nvim'),
+    name = 'slick.nvim',
     priority = 1000,
+    lazy = false,
     config = function()
-      vim.o.background = "light"
-      vim.cmd.colorscheme "cyberdream-light"
+      require('slick').load('Zesty Yellow')
     end,
   },
   { -- Set lualine as statusline
