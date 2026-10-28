@@ -530,16 +530,22 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'kanagawa-dragon'
   --   end,
   -- },
+  -- {
+  --   dir = vim.fn.expand('~/dotfiles/slick.nvim'),
+  --   name = 'slick.nvim',
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     require('slick').load('Zesty Yellow')
+  --   end,
+  -- },
   {
-    'aktersnurra/no-clown-fiesta.nvim',
-    name = 'no-clown-fiesta',
-    priority = 1000,
+    "scottmckendry/cyberdream.nvim",
     lazy = false,
+    priority = 1000,
     config = function()
-      require('no-clown-fiesta').setup({
-        -- transparent = true,
-      })
-      vim.cmd.colorscheme('no-clown-fiesta')
+      vim.o.background = "light"
+      vim.cmd.colorscheme "cyberdream-light"
     end,
   },
   { -- Set lualine as statusline
@@ -548,7 +554,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'no-clown-fiesta',
+        theme = 'auto',
         -- theme = 'catppuccin-latte',
         component_separators = '|',
         section_separators = '',
