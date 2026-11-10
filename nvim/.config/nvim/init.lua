@@ -531,14 +531,22 @@ require('lazy').setup({
   --   end,
   -- },
   {
-    dir = vim.fn.expand('~/dotfiles/slick.nvim'),
-    name = 'slick.nvim',
-    priority = 1000,
+    'slick-theme/nvim',
     lazy = false,
+    priority = 1000,
     config = function()
-      require('slick').load('Zesty Yellow')
+      vim.cmd.colorscheme 'slick-zesty-yellow'
     end,
   },
+  -- {
+  --   dir = vim.fn.expand('~/dotfiles/slick.nvim'),
+  --   name = 'slick.nvim',
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     require('slick').load('Zesty Yellow')
+  --   end,
+  -- },
   { -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
